@@ -58,8 +58,12 @@ const metronome2 = (bpm, beats) => {
 function timer(millisec, beats) {
   const first = document.getElementById("first")
   const rest = document.getElementById("rest")
-  setTimeout( () => {first.play()}, 0 )
-  setTimeout( () => {rest.play()}, millisec )
-  setTimeout( () => {rest.play()}, millisec * 2 )
-  setTimeout( () => {rest.play()}, millisec * 3 )
+  
+  for (var i = 0; i < beats; i++) {
+    if (i === 0) {
+      first.play()
+    } else {
+      setTimeout( () => {rest.play()}, millisec * i )
+    }
+  }
 }
