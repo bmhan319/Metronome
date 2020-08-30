@@ -1,18 +1,32 @@
-let play = false
-let myvar
+//Metronome
+//1000ms =     1sec =  60bpm
+//857ms  = .8571sec =  70bpm
+//750ms  =   .75sec =  80bpm 
+//667ms  =  .667sec =  90bpm
+//500ms  =    .5sec = 120bpm
 
-const metronome = () => {
+//Global Variables
+let play = false
+let isTicking
+
+//Metronome function
+const metronome = (bpm) => {
   const tickSound = document.getElementById("tick")
 
-  if (play === false) {
-    console.log("tick")
-    myvar = setInterval( () => {
-      tickSound.play()
-    }, 857)
+  //Start metronome
+  if (play === false) { 
+    isTicking = setInterval( () => {tickSound.play()}, convert(bpm) )
+  
+  //Stop metronome
   } else if (play === true) {
-    console.log("Stop")
-    clearInterval(myvar)
+    clearInterval(isTicking)
   }
 
   play = !play
 }
+
+//BPM to MS conversion function
+const convert = (bpm) => {
+    let time = ( (60 / bpm) * 1000 ).toFixed(2)
+    return time
+  }
