@@ -12,14 +12,17 @@ let isTicking
 //Metronome function
 const metronome = (bpm) => {
   const tickSound = document.getElementById("tick")
+  const button = document.getElementById("playButton")
 
   //Start metronome
   if (play === false) { 
     isTicking = setInterval( () => {tickSound.play()}, convert(bpm) )
+    button.innerHTML = "Stop"
   
   //Stop metronome
   } else if (play === true) {
     clearInterval(isTicking)
+    button.innerHTML = "Play"
   }
 
   play = !play
