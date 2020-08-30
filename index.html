@@ -9,20 +9,15 @@
 </head>
 
 <body>
+  <audio id="accent">
+    <source src="audio/accent.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
   <audio id="tick">
     <source src="audio/tick.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-  <audio id="first">
-    <source src="audio/first.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <audio id="rest">
-    <source src="audio/rest.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <button id ="playButton" onclick="metronome(70)" type="button">Play</button>
-  <button id ="playButton2" onclick="metronome2(70, 2)" type="button">AltPlay</button>
+  <button id ="playButton" onclick="metronome(120, 4)" type="button">Play</button>
 </body>
 
 <script src="js/index.js"></script>
