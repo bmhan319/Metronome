@@ -162,3 +162,49 @@ body {
   width: 300px;
   height: 60px;
 }
+
+/*  Pendulum  */
+
+.pendulumContainer {
+  border: 2px solid black;
+  width: 400px;
+  height: 700px;
+  margin: 24px auto;
+  border-radius: 25px;
+}
+
+.mainWindow {
+  width: 100%;
+  border: 2px solid red;
+  height: 500px;
+  border-top-left-radius: 23px;
+  border-top-right-radius: 23px;
+  position: relative;
+}
+
+.dashBoard {
+  width: 100%;
+  border: 2px solid gray;
+  height: 200px;
+  border-bottom-left-radius: 27px;
+  border-bottom-right-radius: 27px;
+}
+
+.pendulum {
+  width: 5px;
+  height: 400px;
+  background-color: blue;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: bottom;
+  animation: swinging 3.5s ease-in-out forwards infinite;
+}
+
+@keyframes swinging{
+    0%{transform: rotate(10deg);}
+    50%{transform: rotate(-5deg)}
+    100%{transform: rotate(10deg);}
+}
+
