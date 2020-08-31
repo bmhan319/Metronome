@@ -21,7 +21,7 @@ body {
   margin-bottom: 12px;
 }
 
-.beatPlace {
+.beatBallsWrapper {
   width: 100%;
   display: flex;
   justify-content: center;

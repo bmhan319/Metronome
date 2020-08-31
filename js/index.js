@@ -8,15 +8,16 @@
 
 //Global Variables
 let play = false
-let beatsPerMeasure = 0 //keeping count of where the beat is at in the measure
-let isTicking           //variable needs to be placed here to stop setInterval properly
-let isChangingNumber    //variable needs to be placed here to stop setInterval properly
-let isChangingColor      //variable needs to be placed here to stop setInterval properly
+let beatsPerMeasure = 0   //keeping count of where the beat is at in the measure
+let isTicking             //variable needs to be placed here to stop setInterval properly
+let isChangingNumber      //variable needs to be placed here to stop setInterval properly
+let isChangingColor       //variable needs to be placed here to stop setInterval properly
 
-createBalls(4)
+window.addEventListener('load', createBalls(4));
+
 
 //Master metronome function
-function metronome(bpm, beats) {
+const metronome = (bpm, beats) => {
   const milliseconds = convert(bpm)
   const button = document.getElementById("playButton")
 
@@ -32,62 +33,6 @@ function metronome(bpm, beats) {
   }
 
   play = !play
-}
-
-//Controls the Ticking Audio
-function ticking() {
-  const accent = document.getElementById("accent")
-  const tick = document.getElementById("tick")
-  if (beatsPerMeasure === 0) {
-    accent.play()
-  } else {
-    tick.play()
-  }
-}
-
-//Changes number to reflect beat within the measure
-function changeBeatNum(beats) {
-  const beatNum = document.getElementById("beatNum")
-  
-  beatNum.innerHTML = beatsPerMeasure + 1
-  beatsPerMeasure = (beatsPerMeasure + 1) % beats;
-}
-
-
-//Changes ball color to reflect beat within the measure
-function changeBallColor(beats) {
-  const beatPlace = document.getElementById("beatPlace")
-
-  for (i = 0; i < beats; i++) {
-    if (beatsPerMeasure === 0) {
-      beatPlace.children[0].style.backgroundColor = "green"
-    } else {
-      beatPlace.children[0].style.backgroundColor = "#bbb"
-    }
-
-    if (beatsPerMeasure === i) {
-      beatPlace.children[i].classList.add("active-ball")
-    } else {
-      beatPlace.children[i].classList.remove("active-ball")
-    }
-  } 
-}
-
-
-//Creates number of balls depending value user selects
-function createBalls(beats) {
-  const beatPlace = document.getElementById("beatPlace")
-  let child = beatPlace.lastElementChild;  
-  while (child) { 
-    beatPlace.removeChild(child); 
-    child = beatPlace.lastElementChild; 
-  } 
-  
-  for (var i = 0; i < beats; i++) {
-    const balls = document.createElement("div")
-    balls.classList.add("ball", `ball${i+1}`)
-    beatPlace.appendChild(balls)
-  } 
 }
 
 
@@ -106,4 +51,61 @@ const reset = () => {
   document.getElementById("playButton").innerHTML = "Play"
   document.getElementById("beatNum").innerHTML = 0
   beatsPerMeasure = 0
+}
+
+
+//Controls the Ticking Audio
+const ticking = () => {
+  const accent = document.getElementById("accent")
+  const tick = document.getElementById("tick")
+  if (beatsPerMeasure === 0) {
+    accent.play()
+  } else {
+    tick.play()
+  }
+}
+
+//Changes number to reflect beat within the measure
+const changeBeatNum = (beats) => {
+  const beatNum = document.getElementById("beatNum")
+  
+  beatNum.innerHTML = beatsPerMeasure + 1
+  beatsPerMeasure = (beatsPerMeasure + 1) % beats;
+}
+
+
+//Changes ball color to reflect beat within the measure
+const changeBallColor = (beats) => {
+  const beatBallsWrapper = document.getElementById("beatBallsWrapper")
+
+  for (i = 0; i < beats; i++) {
+    if (beatsPerMeasure === 0) {
+      beatBallsWrapper.children[0].style.backgroundColor = "green"
+    } else {
+      beatBallsWrapper.children[0].style.backgroundColor = "#bbb"
+    }
+
+    if (beatsPerMeasure === i) {
+      beatBallsWrapper.children[i].classList.add("active-ball")
+    } else {
+      beatBallsWrapper.children[i].classList.remove("active-ball")
+    }
+  } 
+}
+
+
+//Creates number of balls depending value user selects
+function createBalls(beats) {
+  const beatBallsWrapper = document.getElementById("beatBallsWrapper")
+  let child = beatBallsWrapper.lastElementChild;  
+  while (child) { 
+    beatBallsWrapper.removeChild(child); 
+    child = beatBallsWrapper.lastElementChild; 
+  } 
+  
+  for (var i = 0; i < beats; i++) {
+    const balls = document.createElement("div")
+    balls.classList.add("ball", `ball${i+1}`)
+    beatBallsWrapper.appendChild(balls)
+  } 
 }
