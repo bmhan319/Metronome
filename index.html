@@ -44,15 +44,19 @@
   <section class="tempoSelectorWrapper">
     <h1 class="tempoTitle">Tempo</h1>
     <div class="tempoWrapper">
-      <input type="range" min="24" max="240" value="80" class="tempoSlider" id="myRange">
+      <div id="minus" class="minus" onclick="tempoChange(-1)">-</div>
+      <input type="range" min="24" max="240" step="1" value="80" onchange="updateInputText(this.value)" class="tempoSlider" id="myRange">
+      <div id="plus" class="plus" onclick="tempoChange(1)">+</div>
     </div>
-    <div class="tempoDisplayWrapper">
-      <p class="tempoDisplay">80 BPM</p>
+   <div class="tempoDisplayWrapper">
+       <!--<input id="rangeValue" type="text" value="80" size="50%" onchange="updateInputText(this.value)">-->
+      <p id="tempoDisplay" class="tempoDisplay">80</p>
+      
     </div>
   </section>
   
   <div class="buttonContainer">
-    <button class="playButton" id ="playButton" onclick=" metronome(120)" type="button">Play</button>
+    <button class="playButton" id ="playButton" onclick=" metronome()" type="button">Play</button>
   </div>
   
 </body>

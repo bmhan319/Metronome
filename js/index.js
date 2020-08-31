@@ -7,20 +7,21 @@
 
 
 //Global Variables
-let play = false
+let play = false          //used to start/stop the metronome
 let beatsPerMeasure = 0   //keeping count of where the beat is at in the measure
 let isTicking             //variable needs to be placed here to stop setInterval properly
 let isChangingNumber      //variable needs to be placed here to stop setInterval properly
 let isChangingColor       //variable needs to be placed here to stop setInterval properly
-let tempo
-let timeSig = 4
+let tempo = 80            //default tempo speed
+let timeSig = 4           //default time signature
 
+
+//On Load, create the default number of balls to match default time signature
 window.addEventListener('load', createBalls(4));
 
 
 //Master metronome function
-const metronome = (bpm) => {
-  tempo = bpm
+const metronome = () => {
   const milliseconds = convert(tempo)
   const button = document.getElementById("playButton")
 
@@ -128,6 +129,44 @@ const timeSigChange = (num) => {
     if (num === j + 1) {
       beatsWrapper.children[j - 1].classList.add("beatPerMeasure-active")
     } 
-  }
+  } 
+}
+
+
+//Update Slider Text Box
+function updateInputText(val) {
+  tempo = parseInt(val)
+
+  //document.getElementById("rangeValue").value = val
+  document.getElementById("tempoDisplay").innerHTML = tempo
   
+  //this is set to prevent metronome from starting automatically when user adjusts tempo prior to hitting 'play'
+  if (play === true) {
+    reset()
+    play = false
+    metronome()
+  }
+}
+
+
+//Tempo change
+function tempoChange(val) {
+  tempo = tempo + val
+  
+  if (tempo < 24) {
+    tempo = 24
+  }
+
+  if (tempo > 240) {
+    tempo = 240
+  }
+
+  document.getElementById("tempoDisplay").innerHTML = tempo
+
+  //this is set to prevent metronome from starting automatically when user adjusts tempo prior to hitting 'play'
+  if (play === true) {
+    reset()
+    play = false
+    metronome()
+  }
 }
