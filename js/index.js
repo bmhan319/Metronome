@@ -8,7 +8,8 @@
 
 //Global Variables
 let play = false
-let isTicking
+let isTicking   //variable needs to be placed here to stop setInterval properly
+let timeout     //variable needs to be placed here to stop setTimeout properly
 
 
 //Metronome function
@@ -18,13 +19,14 @@ const metronome = (bpm, beats) => {
 
   //Start metronome
   if (play === false) {
-    timer(millisec, beats)
-    isTicking = setInterval( () => { timer(millisec, beats) } , millisec * beats )
+    beatTimer(millisec, beats)
+    isTicking = setInterval( () => { beatTimer(millisec, beats) } , millisec * beats )
     button.innerHTML = "Stop"
   
   //Stop metronome
   } else if (play === true) {
     clearInterval(isTicking)
+    clearTimeout(timeout)
     button.innerHTML = "Play"
   }
 
@@ -38,7 +40,7 @@ const convert = (bpm) => {
   }
 
 //Function to play beats at rate and speed given by user
-function timer(millisec, beats) {
+function beatTimer(millisec, beats) {
   const accent = document.getElementById("accent")
   const tick = document.getElementById("tick")
 
@@ -46,7 +48,30 @@ function timer(millisec, beats) {
     if (i === 0) {
       accent.play()
     } else {
-      setTimeout( () => {tick.play()}, millisec * i )
+      timeout = setTimeout( () => {tick.play()}, millisec * i )
     }
   }
+}
+
+//This might be a better way to set ticks
+//ChangeInterface
+let j = 0
+function changeInterface() {
+  const accent = document.getElementById("accent")
+  const beatNum = document.getElementById("beatNum")
+  let beats = 4
+  let array = []
+  for (i = 0; i < beats; i++) {
+    array.push(i+1)
+  } 
+
+  beatNum.innerHTML = array[j]
+  accent.play()
+  j = (j + 1) % array.length;
+}
+
+//setInterval(changeInterface, 1000);
+
+function candy() {
+  setInterval(changeInterface, 1000)
 }

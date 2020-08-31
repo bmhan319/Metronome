@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="icon" href="metronome.png" type="image/png" sizes="16x16"> 
+  <link rel="icon" href="metronome.png" type="image/png" sizes="16x16"> 
+  <link rel="stylesheet" href="css/index.css">
   <title>Metronome</title>
 </head>
 
@@ -17,7 +18,18 @@
     <source src="audio/tick.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+  
+  <section class="beats">
+    <div id="beatNum" class="beatNum">0</div>
+    <div id ="beatPlace" class="beatPlace">
+
+    </div>
+  </section>
+
   <button id ="playButton" onclick="metronome(120, 4)" type="button">Play</button>
+  <button id ="playButton2" onclick=" candy()" type="button">Play2</button>
+
+
 </body>
 
 <script src="js/index.js"></script>

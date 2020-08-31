@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+  width: 100vw;
+}
+
+.beats {
+  width: 50%;
+  border: 2px solid gray;
+  margin: 24px auto 0;
+  padding: 12px 0;
+}
+
+.beatNum {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.beatPlace {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ball {
+  background-color: #bbb;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
