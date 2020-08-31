@@ -9,6 +9,8 @@
 //Global Variables
 let play = false
 let isTicking   //variable needs to be placed here to stop setInterval properly
+let isChangingNumber   //variable needs to be placed here to stop setInterval properly
+let isChangingColor   //variable needs to be placed here to stop setInterval properly
 let timeout     //variable needs to be placed here to stop setTimeout properly
 
 
@@ -53,25 +55,90 @@ function beatTimer(millisec, beats) {
   }
 }
 
+
+
+
+
 //This might be a better way to set ticks
 //ChangeInterface
-let j = 0
-function changeInterface() {
-  const accent = document.getElementById("accent")
-  const beatNum = document.getElementById("beatNum")
-  let beats = 4
-  let array = []
-  for (i = 0; i < beats; i++) {
-    array.push(i+1)
-  } 
+let beatsPerMeasure = 0
 
-  beatNum.innerHTML = array[j]
-  accent.play()
-  j = (j + 1) % array.length;
+function metronome2(bpm, beats) {
+  const milliseconds = convert(bpm)
+  const button = document.getElementById("playButton2")
+
+  createBalls(beats)
+
+  if (play === false) {
+    isTicking = setInterval( () => { ticking() }, milliseconds)
+    isChangingColor = setInterval( () => {changeBallColor(beats)}, milliseconds)
+    isChangingNumber = setInterval( () => {changeBeatNum(beats)}, milliseconds)
+    button.innerHTML = "Stop"
+  } else if (play === true) {
+    clearInterval(isTicking)
+    clearInterval(isChangingNumber)
+    clearInterval(isChangingColor)
+    button.innerHTML = "Play2"
+  }
+
+  play = !play
 }
 
-//setInterval(changeInterface, 1000);
 
-function candy() {
-  setInterval(changeInterface, 1000)
+function ticking() {
+  const accent = document.getElementById("accent")
+  const tick = document.getElementById("tick")
+  if (beatsPerMeasure === 0) {
+    accent.play()
+  } else {
+    tick.play()
+  }
+}
+
+function changeBeatNum(beats) {
+  const beatNum = document.getElementById("beatNum")
+  let arrayOfBeats = []
+  
+  for (i = 0; i < beats; i++) {
+    arrayOfBeats.push(i + 1)
+  } 
+  
+  beatNum.innerHTML = arrayOfBeats[beatsPerMeasure]
+  beatsPerMeasure = (beatsPerMeasure + 1) % arrayOfBeats.length;
+}
+
+function changeBallColor(beats) {
+  const beatPlace = document.getElementById("beatPlace")
+
+  for (i = 0; i < beats; i++) {
+    if (beatsPerMeasure === 0) {
+      beatPlace.children[0].style.backgroundColor = "green"
+    } else {
+      beatPlace.children[0].style.backgroundColor = "#bbb"
+    }
+
+    if (beatsPerMeasure === i) {
+      beatPlace.children[i].classList.add("active-ball")
+    } else {
+      beatPlace.children[i].classList.remove("active-ball")
+    }
+  } 
+}
+
+
+
+
+function createBalls(beats) {
+  const beatPlace = document.getElementById("beatPlace")
+  let child = beatPlace.lastElementChild;  
+  while (child) { 
+    beatPlace.removeChild(child); 
+    child = beatPlace.lastElementChild; 
+  } 
+  
+  for (var i = 0; i < beats; i++) {
+    const balls = document.createElement("div")
+    balls.classList.add("ball", `ball${i+1}`)
+    beatPlace.appendChild(balls)
+  } 
 }
