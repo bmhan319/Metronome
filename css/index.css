@@ -156,11 +156,13 @@ body {
   text-align: center;
   margin: 0 auto;
   padding: 16px;
+  position: relative;
 }
 
 .playButton {
-  width: 300px;
+  width: 60px;
   height: 60px;
+  position: relative;
 }
 
 /*  Pendulum  */
@@ -198,6 +200,9 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.swing {
   transform-origin: bottom;
   animation: swinging 1000ms ease-in-out forwards infinite; 
   /*  double the milliseconds to sync up to the ticking */
@@ -205,8 +210,8 @@ body {
 }
 
 @keyframes swinging{
-    0%{transform: rotate(15deg);}
-    50%{transform: rotate(-15deg)}
-    100%{transform: rotate(15deg);}
+    0%{transform: rotate(25deg);}
+    50%{transform: rotate(-25deg)}
+    100%{transform: rotate(25deg);}
 }
 
