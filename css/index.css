@@ -199,12 +199,14 @@ body {
   left: 50%;
   transform: translateX(-50%);
   transform-origin: bottom;
-  animation: swinging 3.5s ease-in-out forwards infinite;
+  animation: swinging 1000ms ease-in-out forwards infinite; 
+  /*  double the milliseconds to sync up to the ticking */
+  /* 1000ms is equal to 120bpm (500ms * 2) */
 }
 
 @keyframes swinging{
-    0%{transform: rotate(10deg);}
-    50%{transform: rotate(-5deg)}
-    100%{transform: rotate(10deg);}
+    0%{transform: rotate(15deg);}
+    50%{transform: rotate(-15deg)}
+    100%{transform: rotate(15deg);}
 }
 
