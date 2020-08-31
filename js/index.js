@@ -8,64 +8,17 @@
 
 //Global Variables
 let play = false
-let isTicking   //variable needs to be placed here to stop setInterval properly
-let isChangingNumber   //variable needs to be placed here to stop setInterval properly
-let isChangingColor   //variable needs to be placed here to stop setInterval properly
-let timeout     //variable needs to be placed here to stop setTimeout properly
+let beatsPerMeasure = 0 //keeping count of where the beat is at in the measure
+let isTicking           //variable needs to be placed here to stop setInterval properly
+let isChangingNumber    //variable needs to be placed here to stop setInterval properly
+let isChangingColor      //variable needs to be placed here to stop setInterval properly
 
+createBalls(4)
 
-//Metronome function
-const metronome = (bpm, beats) => {
-  const millisec = convert(bpm)
-  const button = document.getElementById("playButton")
-
-  //Start metronome
-  if (play === false) {
-    beatTimer(millisec, beats)
-    isTicking = setInterval( () => { beatTimer(millisec, beats) } , millisec * beats )
-    button.innerHTML = "Stop"
-  
-  //Stop metronome
-  } else if (play === true) {
-    clearInterval(isTicking)
-    clearTimeout(timeout)
-    button.innerHTML = "Play"
-  }
-
-  play = !play
-}
-
-//BeatsPerMinute to Milliseconds conversion
-const convert = (bpm) => {
-    let milliseconds = ( (60 / bpm) * 1000 ).toFixed(2)
-    return milliseconds
-  }
-
-//Function to play beats at rate and speed given by user
-function beatTimer(millisec, beats) {
-  const accent = document.getElementById("accent")
-  const tick = document.getElementById("tick")
-
-  for (var i = 0; i < beats; i++) {
-    if (i === 0) {
-      accent.play()
-    } else {
-      timeout = setTimeout( () => {tick.play()}, millisec * i )
-    }
-  }
-}
-
-
-
-
-
-//This might be a better way to set ticks
-//ChangeInterface
-let beatsPerMeasure = 0
-
-function metronome2(bpm, beats) {
+//Master metronome function
+function metronome(bpm, beats) {
   const milliseconds = convert(bpm)
-  const button = document.getElementById("playButton2")
+  const button = document.getElementById("playButton")
 
   createBalls(beats)
 
@@ -75,16 +28,13 @@ function metronome2(bpm, beats) {
     isChangingNumber = setInterval( () => {changeBeatNum(beats)}, milliseconds)
     button.innerHTML = "Stop"
   } else if (play === true) {
-    clearInterval(isTicking)
-    clearInterval(isChangingNumber)
-    clearInterval(isChangingColor)
-    button.innerHTML = "Play2"
+    reset()
   }
 
   play = !play
 }
 
-
+//Controls the Ticking Audio
 function ticking() {
   const accent = document.getElementById("accent")
   const tick = document.getElementById("tick")
@@ -95,18 +45,16 @@ function ticking() {
   }
 }
 
+//Changes number to reflect beat within the measure
 function changeBeatNum(beats) {
   const beatNum = document.getElementById("beatNum")
-  let arrayOfBeats = []
   
-  for (i = 0; i < beats; i++) {
-    arrayOfBeats.push(i + 1)
-  } 
-  
-  beatNum.innerHTML = arrayOfBeats[beatsPerMeasure]
-  beatsPerMeasure = (beatsPerMeasure + 1) % arrayOfBeats.length;
+  beatNum.innerHTML = beatsPerMeasure + 1
+  beatsPerMeasure = (beatsPerMeasure + 1) % beats;
 }
 
+
+//Changes ball color to reflect beat within the measure
 function changeBallColor(beats) {
   const beatPlace = document.getElementById("beatPlace")
 
@@ -126,8 +74,7 @@ function changeBallColor(beats) {
 }
 
 
-
-
+//Creates number of balls depending value user selects
 function createBalls(beats) {
   const beatPlace = document.getElementById("beatPlace")
   let child = beatPlace.lastElementChild;  
@@ -141,4 +88,22 @@ function createBalls(beats) {
     balls.classList.add("ball", `ball${i+1}`)
     beatPlace.appendChild(balls)
   } 
+}
+
+
+//BeatsPerMinute to Milliseconds conversion
+const convert = (bpm) => {
+  let milliseconds = ( (60 / bpm) * 1000 ).toFixed(2)
+  return milliseconds
+}
+
+
+//Reset Function
+const reset = () => {
+  clearInterval(isTicking)
+  clearInterval(isChangingNumber)
+  clearInterval(isChangingColor)
+  document.getElementById("playButton").innerHTML = "Play"
+  document.getElementById("beatNum").innerHTML = 0
+  beatsPerMeasure = 0
 }
