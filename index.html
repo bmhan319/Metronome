@@ -24,8 +24,6 @@
     <div id ="beatBallsWrapper" class="beatBallsWrapper"></div>
   </section>
 
-  <button id ="playButton" onclick=" metronome(120)" type="button">Play</button>
-
   <section class="beatsPerMeasureSelectorWrapper">
     <h1 class="beatsPerMeasureTitle">Beats Per Measure</h1>
     <div id="beatsWrapper" class="beatsWrapper">
@@ -41,13 +39,22 @@
       <div onclick="timeSigChange(11)" class="beatPerMeasure beatPerMeasure11">11</div>
       <div onclick="timeSigChange(12)" class="beatPerMeasure beatPerMeasure12">12</div>
     </div>
-    
   </section>
 
-  <section class="bpmSelectorWrapper">
-    <h1 class="bpmTitle">Tempo</h1>
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  <section class="tempoSelectorWrapper">
+    <h1 class="tempoTitle">Tempo</h1>
+    <div class="tempoWrapper">
+      <input type="range" min="24" max="240" value="80" class="tempoSlider" id="myRange">
+    </div>
+    <div class="tempoDisplayWrapper">
+      <p class="tempoDisplay">80 BPM</p>
+    </div>
   </section>
+  
+  <div class="buttonContainer">
+    <button class="playButton" id ="playButton" onclick=" metronome(120)" type="button">Play</button>
+  </div>
+  
 </body>
 
 <script src="js/index.js"></script>

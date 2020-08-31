@@ -83,7 +83,7 @@ const changeBallColor = (beats) => {
 
   for (i = 0; i < beats; i++) {
     if (beatsPerMeasure === 0) {
-      beatBallsWrapper.children[0].style.backgroundColor = "green"
+      beatBallsWrapper.children[0].style.backgroundColor = "#4CAF50"
     } else {
       beatBallsWrapper.children[0].style.backgroundColor = "#bbb"
     }
