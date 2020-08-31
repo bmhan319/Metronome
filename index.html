@@ -24,21 +24,24 @@
     <div id ="beatBallsWrapper" class="beatBallsWrapper"></div>
   </section>
 
-  <button id ="playButton" onclick=" metronome(120, 3)" type="button">Play</button>
+  <button id ="playButton" onclick=" metronome(120)" type="button">Play</button>
 
   <section class="beatsPerMeasureSelectorWrapper">
     <h1 class="beatsPerMeasureTitle">Beats Per Measure</h1>
-    <span class="2">2</span>
-    <span class="3">3</span>
-    <span class="4">4</span>
-    <span class="5">5</span>
-    <span class="6">6</span>
-    <span class="7">7</span>
-    <span class="8">8</span>
-    <span class="9">9</span>
-    <span class="10">10</span>
-    <span class="11">11</span>
-    <span class="12">12</span>
+    <div id="beatsWrapper" class="beatsWrapper">
+      <div onclick="timeSigChange(2)" class="beatPerMeasure beatPerMeasure2">2</div>
+      <div onclick="timeSigChange(3)" class="beatPerMeasure beatPerMeasure3">3</div>
+      <div onclick="timeSigChange(4)" class="beatPerMeasure beatPerMeasure4 beatPerMeasure-active">4</div>
+      <div onclick="timeSigChange(5)" class="beatPerMeasure beatPerMeasure5">5</div>
+      <div onclick="timeSigChange(6)" class="beatPerMeasure beatPerMeasure6">6</div>
+      <div onclick="timeSigChange(7)" class="beatPerMeasure beatPerMeasure7">7</div>
+      <div onclick="timeSigChange(8)" class="beatPerMeasure beatPerMeasure8">8</div>
+      <div onclick="timeSigChange(9)" class="beatPerMeasure beatPerMeasure9">9</div>
+      <div onclick="timeSigChange(10)" class="beatPerMeasure beatPerMeasure10">10</div>
+      <div onclick="timeSigChange(11)" class="beatPerMeasure beatPerMeasure11">11</div>
+      <div onclick="timeSigChange(12)" class="beatPerMeasure beatPerMeasure12">12</div>
+    </div>
+    
   </section>
 
   <section class="bpmSelectorWrapper">

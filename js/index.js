@@ -12,21 +12,24 @@ let beatsPerMeasure = 0   //keeping count of where the beat is at in the measure
 let isTicking             //variable needs to be placed here to stop setInterval properly
 let isChangingNumber      //variable needs to be placed here to stop setInterval properly
 let isChangingColor       //variable needs to be placed here to stop setInterval properly
+let tempo
+let timeSig = 4
 
 window.addEventListener('load', createBalls(4));
 
 
 //Master metronome function
-const metronome = (bpm, beats) => {
-  const milliseconds = convert(bpm)
+const metronome = (bpm) => {
+  tempo = bpm
+  const milliseconds = convert(tempo)
   const button = document.getElementById("playButton")
 
-  createBalls(beats)
+  createBalls(timeSig)
 
   if (play === false) {
     isTicking = setInterval( () => { ticking() }, milliseconds)
-    isChangingColor = setInterval( () => {changeBallColor(beats)}, milliseconds)
-    isChangingNumber = setInterval( () => {changeBeatNum(beats)}, milliseconds)
+    isChangingColor = setInterval( () => {changeBallColor(timeSig)}, milliseconds)
+    isChangingNumber = setInterval( () => {changeBeatNum(timeSig)}, milliseconds)
     button.innerHTML = "Stop"
   } else if (play === true) {
     reset()
@@ -108,4 +111,23 @@ function createBalls(beats) {
     balls.classList.add("ball", `ball${i+1}`)
     beatBallsWrapper.appendChild(balls)
   } 
+}
+
+
+//Time Signature Change 
+const timeSigChange = (num) => {
+  const beatsWrapper = document.getElementById("beatsWrapper")
+  timeSig = num
+  createBalls(timeSig)
+
+  for (let i = 0; i < 11; i++) {
+    beatsWrapper.children[i].classList.remove("beatPerMeasure-active")
+  }
+
+  for (let j = 0; j < num; j++) {
+    if (num === j + 1) {
+      beatsWrapper.children[j - 1].classList.add("beatPerMeasure-active")
+    } 
+  }
+  
 }
