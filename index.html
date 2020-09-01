@@ -27,17 +27,17 @@
   <section class="beatsPerMeasureSelectorWrapper">
     <h1 class="beatsPerMeasureTitle">Beats Per Measure</h1>
     <div id="beatsWrapper" class="beatsWrapper">
-      <div onclick="timeSigChange(2)" class="beatPerMeasure beatPerMeasure2">2</div>
-      <div onclick="timeSigChange(3)" class="beatPerMeasure beatPerMeasure3">3</div>
-      <div onclick="timeSigChange(4)" class="beatPerMeasure beatPerMeasure4 beatPerMeasure-active">4</div>
-      <div onclick="timeSigChange(5)" class="beatPerMeasure beatPerMeasure5">5</div>
-      <div onclick="timeSigChange(6)" class="beatPerMeasure beatPerMeasure6">6</div>
-      <div onclick="timeSigChange(7)" class="beatPerMeasure beatPerMeasure7">7</div>
-      <div onclick="timeSigChange(8)" class="beatPerMeasure beatPerMeasure8">8</div>
-      <div onclick="timeSigChange(9)" class="beatPerMeasure beatPerMeasure9">9</div>
-      <div onclick="timeSigChange(10)" class="beatPerMeasure beatPerMeasure10">10</div>
-      <div onclick="timeSigChange(11)" class="beatPerMeasure beatPerMeasure11">11</div>
-      <div onclick="timeSigChange(12)" class="beatPerMeasure beatPerMeasure12">12</div>
+      <p onclick="timeSigChange(2)" class="beatPerMeasure beatPerMeasure2">2</p>
+      <p onclick="timeSigChange(3)" class="beatPerMeasure beatPerMeasure3">3</p>
+      <p onclick="timeSigChange(4)" class="beatPerMeasure beatPerMeasure4 beatPerMeasure-active">4</p>
+      <p onclick="timeSigChange(5)" class="beatPerMeasure beatPerMeasure5">5</p>
+      <p onclick="timeSigChange(6)" class="beatPerMeasure beatPerMeasure6">6</p>
+      <p onclick="timeSigChange(7)" class="beatPerMeasure beatPerMeasure7">7</p>
+      <p onclick="timeSigChange(8)" class="beatPerMeasure beatPerMeasure8">8</p>
+      <p onclick="timeSigChange(9)" class="beatPerMeasure beatPerMeasure9">9</p>
+      <p onclick="timeSigChange(10)" class="beatPerMeasure beatPerMeasure10">10</p>
+      <p onclick="timeSigChange(11)" class="beatPerMeasure beatPerMeasure11">11</p>
+      <p onclick="timeSigChange(12)" class="beatPerMeasure beatPerMeasure12">12</p>
     </div>
   </section>
 
@@ -45,9 +45,21 @@
     <h1 class="tempoTitle">Tempo</h1>
     <div class="tempoWrapper">
       <div id="minus" class="minus" onclick="tempoChange(-1)">-</div>
-      <input type="range" min="24" max="240" step="1" value="80" onchange="updateInputText(this.value)" class="tempoSlider" id="myRange">
+      <input type="range" list="ticks" min="25" max="250" step="5" value="80" onchange="updateInputText(this.value)" class="tempoSlider" id="myRange">
       <div id="plus" class="plus" onclick="tempoChange(1)">+</div>
     </div>
+    <ul id="ticksContainer" class="ticksContainer">
+        <li class="ticks" value="25">25</li>
+        <li class="ticks" value="50">50</li>
+        <li class="ticks" value="75">75</li>
+        <li class="ticks" value="100">100</li>
+        <li class="ticks" value="125">125</li>
+        <li class="ticks" value="150">150</li>
+        <li class="ticks" value="175">175</li>
+        <li class="ticks" value="200">200</li>
+        <li class="ticks" value="225">225</li>
+        <li class="ticks" value="240">250</li>
+      </ul>
    <div class="tempoDisplayWrapper">
        <!--<input id="rangeValue" type="text" value="80" size="50%" onchange="updateInputText(this.value)">-->
       <p id="tempoDisplay" class="tempoDisplay">80</p>

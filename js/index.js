@@ -179,5 +179,4 @@ const pendulum = (milliseconds) => {
   const pendulum = document.getElementById("pendulum")
   pendulum.classList.add("swing")
   pendulum.style.animationDuration = `${milliseconds * 2}ms` 
-
 }
