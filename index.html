@@ -38,28 +38,6 @@
     </div>
   </section>
 
-  <section class="tempoSelectorWrapper">
-    <h1 class="tempoTitle">Tempo</h1>
-    <div class="tempoWrapper">
-      <div id="minus" class="minus" onclick="tempoChange(-1)">-</div>
-      <input type="range" list="ticks" min="25" max="225" step="5" value="80" onchange="updateInputText(this.value)" class="tempoSlider" id="myRange">
-      <div id="plus" class="plus" onclick="tempoChange(1)">+</div>
-    </div>
-    <ul id="ticksContainer" class="ticksContainer">
-        <li class="ticks" value="25">- 25</li>
-        <li class="ticks" value="75">- 75</li>
-        <li class="ticks" value="125">- 125</li> 
-        <li class="ticks" value="175">- 175</li> 
-        <li class="ticks" value="225">- 225</li>
-      </ul>
-   <div class="tempoDisplayWrapper">
-       <!--<input id="rangeValue" type="text" value="80" size="50%" onchange="updateInputText(this.value)">-->
-      <p id="tempoDisplay" class="tempoDisplay">80</p>
-      
-    </div>
-  </section>
-
-
   <section class="pendulumContainer">
     <div class="mainWindow">
       <div class="beats">
@@ -71,6 +49,25 @@
     <div class="dashBoard">
       <div class="buttonContainer">
         <button class="playButton" id ="playButton" onclick=" metronome()" type="button">Play</button>
+      </div>
+
+      <div class="tempoSelectorWrapper">
+        <div class="tempoWrapper">
+          <div id="minus" class="minus" onclick="tempoChange(-1)">-</div>
+          <input type="range" list="ticks" min="25" max="225" step="5" value="80" onchange="updateInputText(this.value)" class="tempoSlider" id="myRange">
+          <div id="plus" class="plus" onclick="tempoChange(1)">+</div>
+        </div>
+        <ul id="ticksContainer" class="ticksContainer">
+            <li class="ticks" value="25">25</li>
+            <li class="ticks" value="75">75</li>
+            <li class="ticks" value="125">125</li> 
+            <li class="ticks" value="175">175</li> 
+            <li class="ticks" value="225">225</li>
+          </ul>
+        <div class="tempoDisplayWrapper">
+          <!--<input id="rangeValue" type="text" value="80" size="50%" onchange="updateInputText(this.value)">-->
+          <p id="tempoDisplay" class="tempoDisplay">80 BPM</p>
+        </div>
       </div>
     </div>
   </section>

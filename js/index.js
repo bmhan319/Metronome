@@ -140,7 +140,7 @@ function updateInputText(val) {
   tempo = parseInt(val)
 
   //document.getElementById("rangeValue").value = val
-  document.getElementById("tempoDisplay").innerHTML = tempo
+  document.getElementById("tempoDisplay").innerHTML = `${tempo} BPM`
   
   //this is set to prevent metronome from starting automatically when user adjusts tempo prior to hitting 'play'
   if (play === true) {
@@ -163,7 +163,7 @@ function tempoChange(val) {
     tempo = 240
   }
 
-  document.getElementById("tempoDisplay").innerHTML = tempo
+  document.getElementById("tempoDisplay").innerHTML = `${tempo} BPM`
 
   //this is set to prevent metronome from starting automatically when user adjusts tempo prior to hitting 'play'
   if (play === true) {
