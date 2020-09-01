@@ -28,6 +28,7 @@ const metronome = () => {
   createBalls(timeSig)
 
   if (play === false) {
+    pendulum(milliseconds)
     isTicking = setInterval( () => { ticking() }, milliseconds)
     isChangingColor = setInterval( () => {changeBallColor(timeSig)}, milliseconds)
     isChangingNumber = setInterval( () => {changeBeatNum(timeSig)}, milliseconds)
@@ -54,6 +55,7 @@ const reset = () => {
   clearInterval(isChangingColor)
   document.getElementById("playButton").innerHTML = "Play"
   document.getElementById("beatNum").innerHTML = 0
+  document.getElementById("pendulum").classList.remove("swing")
   beatsPerMeasure = 0
 }
 
@@ -169,4 +171,13 @@ function tempoChange(val) {
     play = false
     metronome()
   }
+}
+
+
+//Pendulum Swing
+const pendulum = (milliseconds) => {
+  const pendulum = document.getElementById("pendulum")
+  pendulum.classList.add("swing")
+  pendulum.style.animationDuration = `${milliseconds * 2}ms` 
+
 }

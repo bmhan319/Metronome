@@ -168,7 +168,7 @@ body {
   width: 60px;
   height: 60px;
   background-color: #000;
-  color: #fff;
+  color: rgb(22, 202, 22);
   border-radius: 50%;
   font-size: 1em;
 }
@@ -210,12 +210,15 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  box-shadow: 0 0 20px 5px rgb(79, 176, 255);
+  transition: box-shadow 1s ease-in;
 }
 
 .swing {
+  box-shadow: 0 0 20px 5px rgb(79, 176, 255);
+  transition: box-shadow 1s ease-in;
   transform-origin: bottom;
-  animation: swinging 1000ms ease-in-out forwards infinite; 
+  animation: swinging ease-in-out forwards infinite; 
+  animation-duration: 1500ms; 
   /*  double the milliseconds to sync up to the ticking */
   /* 1000ms is equal to 120bpm (500ms * 2) */
 }
