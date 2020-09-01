@@ -24,6 +24,9 @@ window.addEventListener('load', createBalls(4));
 const metronome = () => {
   const milliseconds = convert(tempo)
   const button = document.getElementById("playButton")
+  const range = document.getElementById("myRange")
+
+  console.log(range)
 
   createBalls(timeSig)
 
@@ -161,12 +164,12 @@ function updateInputText(val) {
 function tempoChange(val) {
   tempo = tempo + val
   
-  if (tempo < 24) {
-    tempo = 24
+  if (tempo < 25) {
+    tempo = 25
   }
 
-  if (tempo > 240) {
-    tempo = 240
+  if (tempo > 225) {
+    tempo = 225
   }
 
   document.getElementById("tempoDisplay").innerHTML = `${tempo} BPM`
