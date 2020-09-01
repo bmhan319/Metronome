@@ -133,17 +133,17 @@ body {
   -webkit-appearance: none;
   appearance: none;
   width: 25px;
-  height: 25px;
+  height: 20px;
   border-radius: 50%; 
-  background: #4CAF50;
+  background: rgb(43, 160, 255);
   cursor: pointer;
 }
 
 .tempoSlider::-moz-range-thumb {
   width: 24px;
-  height: 24px;
+  height: 20px;
   border-radius: 40%;
-  background: #4CAF50;
+  background: rgb(43, 160, 255);
   cursor: pointer;
   border: 0;
 }
@@ -157,7 +157,8 @@ body {
 
 .tempoDisplay {
   text-align: center;
-  font-size: 1.5em
+  font-size: 1.5em;
+  color: rgb(156, 156, 156);
 }
 
 .ticksContainer {
@@ -184,7 +185,7 @@ body {
   margin: 0 auto;
   position: relative;
   top: -40px;
-  background-color: rgb(100, 100, 100);
+  background-color: rgb(105, 100, 100);
   display: flex;
   justify-content: center;
   align-items: center;
