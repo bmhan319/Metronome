@@ -67,12 +67,8 @@ const ticking = () => {
   const tick = document.getElementById("tick")
   const accentCheck = document.getElementById("accentCheck")
 
-  if (beatsPerMeasure === 0) {
-    if (accentCheck.checked === true) {
-      accent.play()
-    } else {
-      tick.play()
-    }
+  if (beatsPerMeasure === 0 && accentCheck.checked === true) {
+    accent.play()
   } else {
     tick.play()
   }

@@ -20,14 +20,36 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 
-body {
-  width: 100vw;
+.pendulumContainer {
+  border: 2px solid #000;
+  width: 360px;
+  height: 740px;
+  margin: 0 auto;
+  border-radius: 25px;
+  background-color: #000;
+}
+
+
+/* Main Window */
+.mainWindow {
+  margin: 18% auto 0; /*25px*/
+  width: 94.444%; /*340px*/
+  border: 4px solid var(--darkGrey);
+  height: 60.81%; /*450px*/
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: relative;
+  border-bottom: 0;
+  background-image: url("../img/BlackWoodBg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #000;
 }
 
 .beats {
-  margin: 0 auto ;
-  padding: 12px 0;
-
+  margin: 0 auto;
+  padding: 2.667% 0; /*12px*/
 }
 
 .beatNum {
@@ -59,7 +81,58 @@ body {
 
 .active-ball {
   background-color: var(--mainBlue);
+  background-image: var(--noise);
 }
+
+.pendulum {
+  display: block;
+  width: 10px;
+  height: 82.222%; /*370px*/
+  background-color: var(--mainBlue);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: box-shadow 1s ease-in;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  box-shadow:  3px 0 8px 2px #000;
+}
+
+.pendulum2 {
+  width: 3px;
+  background-color: rgb(128, 0, 128);
+  height: 95%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.swing {
+  height: 82.222%; /*370px*/
+  box-shadow: 0 0 40px 3px var(--mainBlue);
+  transition: box-shadow .5s ease-in;
+  transform-origin: bottom;
+  animation: swinging ease-in-out forwards infinite; 
+  animation-duration: 1500ms; 
+  /*  double the milliseconds to sync up to the ticking */
+  /* 1000ms is equal to 120bpm (500ms * 2) */
+}
+
+@keyframes swinging{
+    0%{transform: translateX(-50%) rotate(22deg);}
+    50%{transform: translateX(-50%) rotate(-22deg)}
+    100%{transform: translateX(-50%) rotate(22deg);}
+}
+
+
+
+
+
+
+
+
 
 .beatsPerMeasureSelectorWrapper {
   width: 95%;
@@ -272,30 +345,9 @@ body {
 
 
 /*  Pendulum  */
-.pendulumContainer {
-  border: 2px solid #000;
-  width: 400px;
-  height: 700px;
-  margin: 24px auto;
-  border-radius: 25px;
-  background-color: #000;
-}
 
-.mainWindow {
-  margin: 25px auto 0;
-  width: 350px;
-  border: 4px solid var(--darkGrey);
-  height: 450px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  position: relative;
-  border-bottom: 0;
-  background-image: url("../img/BlackWoodBg.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: #000;
-}
+
+
 
 .dashBoard {
   width: 350px;
@@ -310,36 +362,10 @@ body {
   box-shadow: inset 0px 0px 12px 2px var(--shadowGrey);
 }
 
-.pendulum {
-  display: block;
-  width: 10px;
-  height: 370px;
-  background-color: var(--mainBlue);
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: box-shadow 1s ease-in;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  box-shadow:  3px 0 8px 2px #000;
-}
 
 
-.swing {
-  box-shadow: 0 0 20px 5px var(--mainBlue);
-  transition: box-shadow 1s ease-in;
-  transform-origin: bottom;
-  animation: swinging ease-in-out forwards infinite; 
-  animation-duration: 1500ms; 
-  /*  double the milliseconds to sync up to the ticking */
-  /* 1000ms is equal to 120bpm (500ms * 2) */
-}
 
-@keyframes swinging{
-    0%{transform: translateX(-50%) rotate(22deg);}
-    50%{transform: translateX(-50%) rotate(-22deg)}
-    100%{transform: translateX(-50%) rotate(22deg);}
-}
+
 
 
 .accentCheckContainer {

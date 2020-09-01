@@ -25,8 +25,13 @@
         <div id="beatNum" class="beatNum">0</div>
         <div id ="beatBallsWrapper" class="beatBallsWrapper"></div>
       </div>  
-      <div id="pendulum" class="pendulum"></div>
+      <div id="pendulum" class="pendulum">
+        <div class="pendulum2"></div>
+      </div>
     </div>
+
+
+    
     <div class="dashBoard">
       <div class="buttonContainer">
         <button class="playButton" id ="playButton" onclick=" metronome()" type="button">Play</button>
@@ -50,7 +55,7 @@
         </div>
         <div class="accentCheckContainer">
           <p class="accentCheckText">Accent <br />First Beat?</p>
-          <input class="accentCheck" id="accentCheck" type="checkbox" onchange="ticking()">
+          <input class="accentCheck" id="accentCheck" type="checkbox" onchange="ticking()" checked>
         </div>
       </div>
       <div class="beatsPerMeasureSelectorWrapper">
