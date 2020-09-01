@@ -26,8 +26,6 @@ const metronome = () => {
   const button = document.getElementById("playButton")
   const range = document.getElementById("myRange")
 
-  console.log(range)
-
   createBalls(timeSig)
 
   if (play === false) {
@@ -95,7 +93,7 @@ const changeBallColor = (beats) => {
 
   for (i = 0; i < beats; i++) {
     if (beatsPerMeasure === 0) {
-      beatBallsWrapper.children[0].style.backgroundColor = "rgb(43, 160, 255)"
+      beatBallsWrapper.children[0].style.backgroundColor = "rgb(32, 106, 167)"
     } else {
       beatBallsWrapper.children[0].style.backgroundColor = "#bbb"
     }
