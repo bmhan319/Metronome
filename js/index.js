@@ -18,7 +18,7 @@ let timeSig = 4           //default time signature
 
 //On Load, create the default number of balls to match default time signature
 window.addEventListener('load', createBalls(4));
-
+window.addEventListener('unload', resetSlider())
 
 //Master metronome function
 const metronome = () => {
@@ -188,4 +188,33 @@ const pendulum = (milliseconds) => {
   const pendulum = document.getElementById("pendulum")
   pendulum.classList.add("swing")
   pendulum.style.animationDuration = `${milliseconds * 2}ms` 
+}
+
+
+//Reset Slider
+function resetSlider() {
+  const slider = document.getElementById("myRange")
+  const wrapper = document.getElementById("tempoWrapper")
+  const clone = document.createElement("input")
+  let key = []
+  let val = []
+  const attrib = {
+    type: "range",
+    min: "25",
+    max: "225",
+    step: "5",
+    value: "80",
+    onmouseup: "updateInputText(this.value)",
+    id: "myRange"}
+
+  key = Object.keys(attrib)
+  val = Object.values(attrib)
+  clone.classList.add("tempoSlider")
+
+  for (let i = 0; i < key.length; i++) {
+    clone.setAttribute(key[i], val[i])
+  }
+  
+  wrapper.removeChild(slider)
+  wrapper.insertBefore(clone, wrapper.childNodes[2])
 }
