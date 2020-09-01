@@ -18,25 +18,6 @@
     <source src="audio/tick.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-  
-  
-
-  <section class="beatsPerMeasureSelectorWrapper">
-    <h1 class="beatsPerMeasureTitle">Beats Per Measure</h1>
-    <div id="beatsWrapper" class="beatsWrapper">
-      <p onclick="timeSigChange(2)" class="beatPerMeasure beatPerMeasure2">2</p>
-      <p onclick="timeSigChange(3)" class="beatPerMeasure beatPerMeasure3">3</p>
-      <p onclick="timeSigChange(4)" class="beatPerMeasure beatPerMeasure4 beatPerMeasure-active">4</p>
-      <p onclick="timeSigChange(5)" class="beatPerMeasure beatPerMeasure5">5</p>
-      <p onclick="timeSigChange(6)" class="beatPerMeasure beatPerMeasure6">6</p>
-      <p onclick="timeSigChange(7)" class="beatPerMeasure beatPerMeasure7">7</p>
-      <p onclick="timeSigChange(8)" class="beatPerMeasure beatPerMeasure8">8</p>
-      <p onclick="timeSigChange(9)" class="beatPerMeasure beatPerMeasure9">9</p>
-      <p onclick="timeSigChange(10)" class="beatPerMeasure beatPerMeasure10">10</p>
-      <p onclick="timeSigChange(11)" class="beatPerMeasure beatPerMeasure11">11</p>
-      <p onclick="timeSigChange(12)" class="beatPerMeasure beatPerMeasure12">12</p>
-    </div>
-  </section>
 
   <section class="pendulumContainer">
     <div class="mainWindow">
@@ -67,6 +48,21 @@
         <div class="tempoDisplayWrapper">
           <!--<input id="rangeValue" type="text" value="80" size="50%" onchange="updateInputText(this.value)">-->
           <p id="tempoDisplay" class="tempoDisplay">80 BPM</p>
+        </div>
+      </div>
+      <div class="beatsPerMeasureSelectorWrapper">
+        <div id="beatsWrapper" class="beatsWrapper">
+          <p onclick="timeSigChange(2)" class="beatPerMeasure beatPerMeasure2">2</p>
+          <p onclick="timeSigChange(3)" class="beatPerMeasure beatPerMeasure3">3</p>
+          <p onclick="timeSigChange(4)" class="beatPerMeasure beatPerMeasure4 beatPerMeasure-active">4</p>
+          <p onclick="timeSigChange(5)" class="beatPerMeasure beatPerMeasure5">5</p>
+          <p onclick="timeSigChange(6)" class="beatPerMeasure beatPerMeasure6">6</p>
+          <p onclick="timeSigChange(7)" class="beatPerMeasure beatPerMeasure7">7</p>
+          <p onclick="timeSigChange(8)" class="beatPerMeasure beatPerMeasure8">8</p>
+          <p onclick="timeSigChange(9)" class="beatPerMeasure beatPerMeasure9">9</p>
+          <p onclick="timeSigChange(10)" class="beatPerMeasure beatPerMeasure10">10</p>
+          <p onclick="timeSigChange(11)" class="beatPerMeasure beatPerMeasure11">11</p>
+          <p onclick="timeSigChange(12)" class="beatPerMeasure beatPerMeasure12">12</p>
         </div>
       </div>
     </div>
