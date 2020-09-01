@@ -155,12 +155,19 @@ body {
 .ticksContainer {
   width: 70%;
   list-style: none;
-  border: 2px solid green;
   display: flex;
   margin: 0 auto;
-  justify-content: space-around;;
+  justify-content: space-between;
+  position: relative;
+  top: -20px;
 }
 
+.ticks {
+  width: 30px;
+  text-align: center;
+  transform: rotate(90deg);
+  font-size: .75em;
+}
 
 .buttonContainer {
   width: 80px;
