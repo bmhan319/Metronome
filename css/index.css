@@ -166,7 +166,7 @@ body {
   width: 30px;
   text-align: center;
   transform: rotate(90deg);
-  font-size: .75em;
+  font-size: .65em;
 }
 
 .buttonContainer {
@@ -193,7 +193,6 @@ body {
 }
 
 /*  Pendulum  */
-
 .pendulumContainer {
   border: 2px solid black;
   width: 400px;
@@ -226,7 +225,8 @@ body {
 }
 
 .pendulum {
-  width: 5px;
+  display: block;
+  width: 10px;
   height: 400px;
   background-color: rgb(79, 176, 255);
   position: absolute;
@@ -234,13 +234,13 @@ body {
   left: 50%;
   transform: translateX(-50%);
   transition: box-shadow 1s ease-in;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
+
 
 .swing {
   box-shadow: 0 0 20px 5px rgb(79, 176, 255);
-  transition: box-shadow 1s ease-in;
+  transition: box-shadow .25s ease-in;
   transform-origin: bottom;
   animation: swinging ease-in-out forwards infinite; 
   animation-duration: 1500ms; 
