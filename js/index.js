@@ -86,7 +86,7 @@ const changeBallColor = (beats) => {
 
   for (i = 0; i < beats; i++) {
     if (beatsPerMeasure === 0) {
-      beatBallsWrapper.children[0].style.backgroundColor = "#4CAF50"
+      beatBallsWrapper.children[0].style.backgroundColor = "rgb(43, 160, 255)"
     } else {
       beatBallsWrapper.children[0].style.backgroundColor = "#bbb"
     }
