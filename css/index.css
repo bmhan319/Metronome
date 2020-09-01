@@ -151,18 +151,26 @@ body {
 }
 
 .buttonContainer {
-  width: 50%;
+  width: 80px;
+  height: 80px;
   border: 2px solid purple;
-  text-align: center;
   margin: 0 auto;
-  padding: 16px;
   position: relative;
+  top: -40px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }
 
 .playButton {
   width: 60px;
   height: 60px;
-  position: relative;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1em;
 }
 
 /*  Pendulum  */
@@ -182,6 +190,7 @@ body {
   border-top-left-radius: 23px;
   border-top-right-radius: 23px;
   position: relative;
+  background-color: #000;
 }
 
 .dashBoard {
@@ -190,16 +199,18 @@ body {
   height: 200px;
   border-bottom-left-radius: 27px;
   border-bottom-right-radius: 27px;
+  position: relative;
 }
 
 .pendulum {
   width: 5px;
   height: 400px;
-  background-color: blue;
+  background-color: rgb(79, 176, 255);
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  box-shadow: 0 0 20px 5px rgb(79, 176, 255);
 }
 
 .swing {
@@ -214,4 +225,7 @@ body {
     50%{transform: rotate(-25deg)}
     100%{transform: rotate(25deg);}
 }
+
+
+
 
