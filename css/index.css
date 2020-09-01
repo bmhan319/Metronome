@@ -198,6 +198,7 @@ body {
   text-align: center;
   transform: rotate(90deg);
   font-size: .65em;
+  color: #ddd;
 }
 
 .buttonContainer {
