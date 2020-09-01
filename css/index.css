@@ -93,18 +93,13 @@ body {
 
 .tempoSelectorWrapper {
   width: 100%;
-  padding-top: 40px;
+  padding-top: 44px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
   position: absolute;
   top: 0;
-}
-
-.tempoTitle {
-  text-align: center;
-  margin-bottom: 12px;
 }
 
 .tempoWrapper {
@@ -152,12 +147,13 @@ body {
 
 .tempoSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
+  width: 24px;
   height: 20px;
-  border-radius: 50%; 
+  border-radius: 40%;
   background: rgb(43, 160, 255);
   cursor: pointer;
+  border: 0;
+  box-shadow:  5px 3px 8px 0px #333;
 }
 
 .tempoSlider::-moz-range-thumb {
@@ -278,12 +274,12 @@ body {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   position: relative;
-  background-color: #000;
   border-bottom: 0;
-  background-image: url("/img/BlackWoodBg.jpg");
+  background-image: url("../img/BlackWoodBg.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-color: #000;
 }
 
 .dashBoard {
@@ -328,6 +324,28 @@ body {
     0%{transform: translateX(-50%) rotate(22deg);}
     50%{transform: translateX(-50%) rotate(-22deg)}
     100%{transform: translateX(-50%) rotate(22deg);}
+}
+
+
+.accentCheckContainer {
+  position: absolute;
+  display: flex;
+  top: 5px;
+  right: 10px;
+}
+
+.accentCheckText {
+  text-align: center;
+  font-size: 1.1em;
+  color: #bbb;
+  margin-right: 12px;
+}
+
+.accentCheck {
+  height: 20px;
+  width: 20px;
+  margin-top: 4px;
+  background-color: rgb(43, 160, 255);
 }
 
 

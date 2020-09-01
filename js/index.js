@@ -64,8 +64,14 @@ const reset = () => {
 const ticking = () => {
   const accent = document.getElementById("accent")
   const tick = document.getElementById("tick")
+  const accentCheck = document.getElementById("accentCheck")
+
   if (beatsPerMeasure === 0) {
-    accent.play()
+    if (accentCheck.checked === true) {
+      accent.play()
+    } else {
+      tick.play()
+    }
   } else {
     tick.play()
   }
