@@ -5,7 +5,6 @@
 //667ms  =  .667sec =  90bpm
 //500ms  =    .5sec = 120bpm
 
-
 //Global Variables
 let play = false          //used to start/stop the metronome
 let beatsPerMeasure = 0   //keeping count of where the beat is at in the measure
@@ -15,16 +14,15 @@ let isChangingColor       //variable needs to be placed here to stop setInterval
 let tempo = 80            //default tempo speed
 let timeSig = 4           //default time signature
 
-
 //On Load, create the default number of balls to match default time signature
 window.addEventListener('load', createBalls(4));
+//On unLoad, reset slider position back to default of '80'
 window.addEventListener('unload', resetSlider())
 
 //Master metronome function
 const metronome = () => {
   const milliseconds = convert(tempo)
   const button = document.getElementById("playButton")
-  const range = document.getElementById("myRange")
 
   createBalls(timeSig)
 
