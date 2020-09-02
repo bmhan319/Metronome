@@ -8,9 +8,7 @@
 //Global Variables
 let play = false          //used to start/stop the metronome
 let beatsPerMeasure = 0   //keeping count of where the beat is at in the measure
-let isTicking             //variable needs to be placed here to stop setInterval properly
-let isChangingNumber      //variable needs to be placed here to stop setInterval properly
-let isChangingColor       //variable needs to be placed here to stop setInterval properly
+let changeSettings           //variable needs to be placed here to stop setInterval properly
 let tempo = 80            //default tempo speed
 let timeSig = 4           //default time signature
 
@@ -29,9 +27,11 @@ const metronome = () => {
 
   if (play === false) {
     pendulum(milliseconds)
-    isTicking = setInterval( () => { ticking() }, milliseconds)
-    isChangingColor = setInterval( () => {changeBallColor(timeSig)}, milliseconds)
-    isChangingNumber = setInterval( () => {changeBeatNum(timeSig)}, milliseconds)
+    changeSettings = setInterval( () => {
+      ticking()
+      changeBallColor(timeSig)
+      changeBeatNum(timeSig)
+      }, milliseconds)
     button.innerHTML = "Stop"
   } else if (play === true) {
     reset()
@@ -50,9 +50,7 @@ const convert = (bpm) => {
 
 //Reset Function
 const reset = () => {
-  clearInterval(isTicking)
-  clearInterval(isChangingNumber)
-  clearInterval(isChangingColor)
+  clearInterval(changeSettings)
   document.getElementById("playButton").innerHTML = "Play"
   document.getElementById("beatNum").innerHTML = 0
   document.getElementById("pendulum").classList.remove("swing")
