@@ -19,6 +19,7 @@ window.addEventListener('load', createBalls(4));
 //On unLoad, reset slider position back to default of '80'
 window.addEventListener('unload', resetSlider())
 
+
 //Master metronome function
 const metronome = () => {
   const milliseconds = convert(tempo)
@@ -72,12 +73,14 @@ const ticking = () => {
   }
 }
 
+
 //Changes number to reflect beat within the measure
 const changeBeatNum = (beats) => {
   const beatNum = document.getElementById("beatNum")
   
   beatNum.innerHTML = beatsPerMeasure + 1
-  beatsPerMeasure = (beatsPerMeasure + 1) % beats;
+  //using modulus method to iterate up and then reset back to 1
+  beatsPerMeasure = (beatsPerMeasure + 1) % beats;  
 }
 
 
@@ -105,11 +108,13 @@ const changeBallColor = (beats) => {
 function createBalls(beats) {
   const beatBallsWrapper = document.getElementById("beatBallsWrapper")
   let child = beatBallsWrapper.lastElementChild;  
+  //first remove all exisiting child ball elements
   while (child) { 
     beatBallsWrapper.removeChild(child); 
     child = beatBallsWrapper.lastElementChild; 
   } 
   
+  //then re-add them from a blank slate
   for (var i = 0; i < beats; i++) {
     const balls = document.createElement("div")
     balls.classList.add("ball", `ball${i+1}`)
@@ -124,10 +129,12 @@ const timeSigChange = (num) => {
   timeSig = num
   createBalls(timeSig)
 
+  //iterates through all balls and removes 'active' classname
   for (let i = 0; i < 11; i++) {
     beatsWrapper.children[i].classList.remove("beatPerMeasure-active")
   }
 
+  //then add 'active classname to selected ball only
   for (let j = 0; j < num; j++) {
     if (num === j + 1) {
       beatsWrapper.children[j - 1].classList.add("beatPerMeasure-active")
@@ -139,8 +146,6 @@ const timeSigChange = (num) => {
 //Update Slider Text Box
 function updateInputText(val) {
   tempo = parseInt(val)
-
-  //document.getElementById("rangeValue").value = val
   document.getElementById("tempoDisplay").innerHTML = `${tempo} BPM`
   
   //this is set to prevent metronome from starting automatically when user adjusts tempo prior to hitting 'play'
@@ -152,14 +157,15 @@ function updateInputText(val) {
 }
 
 
-//Tempo change
+//Tempo change using fine tune buttons next to slider
 function tempoChange(val) {
   tempo = tempo + val
   
+  //to prevent user from selecting a number below 25
   if (tempo < 25) {
     tempo = 25
   }
-
+  //to prevent user from selecting a number over 225 
   if (tempo > 225) {
     tempo = 225
   }
@@ -184,6 +190,8 @@ const pendulum = (milliseconds) => {
 
 
 //Reset Slider
+//In order to reset slider, must delete old 'input' tag and add create a new one
+//NOTE: using clone() will create new slider but will not reset thumb slider position on reload
 function resetSlider() {
   const slider = document.getElementById("myRange")
   const wrapper = document.getElementById("tempoWrapper")
@@ -197,7 +205,8 @@ function resetSlider() {
     step: "5",
     value: "80",
     onmouseup: "updateInputText(this.value)",
-    id: "myRange"}
+    id: "myRange"
+  }
 
   key = Object.keys(attrib)
   val = Object.values(attrib)
