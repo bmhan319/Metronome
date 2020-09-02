@@ -161,6 +161,7 @@
 .tempoDisplay {
   font-size: 1.5em;
   color: var(--lightGrey);
+  text-shadow: 1px 1px 2px var(--shadowGrey);
 }
 
 /* Accent CheckBox */
@@ -173,6 +174,7 @@
   font-size: 1em;
   color: var(--lightGrey);
   margin-right: 12px;
+  text-shadow: 1px 1px 2px var(--shadowGrey);
 }
 
 .accentCheck {
@@ -268,6 +270,7 @@
   font-size: .85em;
   color: var(--lightGrey);
   margin-top: 2px;
+  text-shadow: 1px 1px 5px var(--shadowGrey);
 }
 
 /* Time Signature Selector */
