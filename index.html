@@ -20,44 +20,47 @@
   </audio>
 
   <section class="pendulumContainer">
+
     <div class="mainWindow">
       <div class="beats">
         <div id="beatNum" class="beatNum">0</div>
         <div id ="beatBallsWrapper" class="beatBallsWrapper"></div>
       </div>  
+
       <div id="pendulum" class="pendulum">
         <div class="pendulum2"></div>
       </div>
     </div>
 
-
-    
     <div class="dashBoard">
-      <div class="buttonContainer">
-        <button class="playButton" id ="playButton" onclick=" metronome()" type="button">Play</button>
-      </div>
-
       <div class="tempoSelectorWrapper">
+
+        <div class="tempoAccentDisplayWrapper">
+          <div class="tempoDisplayWrapper">
+            <p id="tempoDisplay" class="tempoDisplay">80 BPM</p>
+          </div>
+
+          <div class="accentCheckContainer">
+            <p class="accentCheckText">Accent <br />First Beat?</p>
+            <input class="accentCheck" id="accentCheck" type="checkbox" onchange="ticking()" checked>
+          </div>
+        </div>
+
         <div id="tempoWrapper" class="tempoWrapper">
           <div id="minus" class="minus" onclick="tempoChange(-1)">-</div>
           <input type="range" min="25" max="225" step="5" value="80" onmouseup="updateInputText(this.value)" class="tempoSlider" id="myRange">
           <div id="plus" class="plus" onclick="tempoChange(1)">+</div>
         </div>
+
         <ul id="ticksContainer" class="ticksContainer">
-            <li class="ticks" value="25">25</li>
-            <li class="ticks" value="75">75</li>
-            <li class="ticks" value="125">125</li> 
-            <li class="ticks" value="175">175</li> 
-            <li class="ticks" value="225">225</li>
-          </ul>
-        <div class="tempoDisplayWrapper">
-          <p id="tempoDisplay" class="tempoDisplay">80 BPM</p>
-        </div>
-        <div class="accentCheckContainer">
-          <p class="accentCheckText">Accent <br />First Beat?</p>
-          <input class="accentCheck" id="accentCheck" type="checkbox" onchange="ticking()" checked>
-        </div>
+          <li class="ticks" value="25">25</li>
+          <li class="ticks" value="75">75</li>
+          <li class="ticks" value="125">125</li> 
+          <li class="ticks" value="175">175</li> 
+          <li class="ticks" value="225">225</li>
+        </ul>
       </div>
+
       <div class="beatsPerMeasureSelectorWrapper">
         <div id="beatsWrapper" class="beatsWrapper">
           <p onclick="timeSigChange(2)" class="beatPerMeasure beatPerMeasure2">2</p>
@@ -73,6 +76,10 @@
           <p onclick="timeSigChange(12)" class="beatPerMeasure beatPerMeasure12">12</p>
         </div>
       </div>
+
+      <div class="buttonContainer">
+        <button class="playButton" id ="playButton" onclick=" metronome()" type="button">Play</button>
+      </div> 
     </div>
   </section>
   

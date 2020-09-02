@@ -3,8 +3,8 @@
   --darkBlue: rgb(32, 106, 167);
 
   --lightGrey: #bbb;
-  --grey: #ddd;
-  --darkGrey: rgb(126, 126, 126);
+  --grey: rgb(126, 126, 126);
+  --darkGrey: rgb(110, 110, 110);
   
   --shadowGrey: #444;
   --shadowGreyActive: #666;
@@ -34,7 +34,7 @@
 .mainWindow {
   margin: 18% auto 0; /*25px*/
   width: 94.444%; /*340px*/
-  border: 4px solid var(--darkGrey);
+  border: 4px solid var(--grey);
   height: 60.81%; /*450px*/
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -126,25 +126,154 @@
     100%{transform: translateX(-50%) rotate(22deg);}
 }
 
+/* DashBoard */
+.dashBoard {
+  width: 94.444%; /*340px*/
+  border: 4px solid var(--grey);
+  height: 20.81%; /*154px*/
+  margin: 0 auto;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position: relative;
+  background-image: var(--noise);
+  background-color: var(--grey);
+  box-shadow: inset 0px 0px 12px 2px var(--shadowGrey);
+}
 
+.tempoSelectorWrapper {
+  width: 100%;
+}
 
-
-
-
-
-
-
-.beatsPerMeasureSelectorWrapper {
-  width: 95%;
-  margin: 24px auto 0;
+.tempoAccentDisplayWrapper {
+  margin-top: 8px;
+  padding: 0 16px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Tempo Display */
+.tempoDisplayWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.tempoDisplay {
+  font-size: 1.5em;
+  color: var(--lightGrey);
+}
+
+/* Accent CheckBox */
+.accentCheckContainer {
+  display: flex;
+}
+
+.accentCheckText {
+  text-align: center;
+  font-size: 1em;
+  color: var(--lightGrey);
+  margin-right: 12px;
+}
+
+.accentCheck {
+  height: 16px;
+  width: 16px;
+  margin-top: 4px;
+  background-color: var(--mainBlue);
+}
+
+/* Tempo Selector */
+.tempoWrapper {
+  width: 100%;
+  text-align: center;
+  padding: 0 16px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.beatsPerMeasureTitle {
+.minus,
+.plus {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--lightGrey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  border: 2px solid var(--darkGrey);
+  background-image: var(--noise);
+  color: var(--grey);
+  box-shadow:  2px 2px 2px 0px var(--shadowGrey);
+  cursor: pointer;
+}
+
+.minus:active,
+.plus:active {
+  box-shadow:  1px 1px 2px 0 var(--shadowGreyActive);
+}
+
+.tempoSlider {
+  width: 77%;
+  -webkit-appearance: none;
+  height: 8px;
+  border-radius: 5px;  
+  background: var(--lightGrey);
+  outline: none;
+  opacity: 0.7;
+  background-image: var(--noise);
+  box-shadow:  0px 0 2px 0px #000;
+  margin: 0 10px;
+}
+
+.tempoSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px;
+  height: 24px;
+  border-radius: 40%;
+  background: var(--mainBlue);
+  cursor: pointer;
+  border: 1px solid var(--darkBlue);
+  box-shadow:  4px 3px 8px 0px var(--shadowGrey);
+  box-shadow: 3px 3px 6px 0px var(--darkBlue) inset;
+}
+
+.tempoSlider::-moz-range-thumb {
+  width: 24px;
+  height: 20px;
+  border-radius: 40%;
+  background: var(--mainBlue);
+  cursor: pointer;
+  border: 1px solid var(--darkBlue);
+  box-shadow:  4px 3px 8px 0px var(--shadowGrey);
+  box-shadow: 3px 3px 6px 0px var(--darkBlue) inset;
+}
+
+.ticksContainer {
+  width: 71%;
+  list-style: none;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  position: relative;
+  top: -20px;
+}
+
+.ticks {
+  width: 30px;
   text-align: center;
-  margin-bottom: 12px;
+  transform: rotate(90deg);
+  font-size: .85em;
+  color: var(--lightGrey);
+  margin-top: 2px;
+}
+
+/* Time Signature Selector */
+.beatsPerMeasureSelectorWrapper {
+  width: 95%;
+  margin: 0 auto;
 }
 
 .beatsWrapper {
@@ -154,11 +283,9 @@
 
 .beatPerMeasure {
   border-radius: 50%;
-  margin: 0;
-  padding: 0;
   margin-right: 4px;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,126 +307,23 @@
   color: #fff;
 }
 
-.tempoSelectorWrapper {
-  width: 100%;
-  padding-top: 44px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-}
-
-.tempoWrapper {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.minus,
-.plus {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background-color: var(--lightGrey);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5em;
-  border: 2px solid var(--darkGrey);
-  background-image: var(--noise);
-  color: rgb(126, 126, 126);
-  box-shadow:  2px 2px 2px 0px var(--shadowGrey);
-  cursor: pointer;
-}
-
-.minus:active,
-.plus:active {
-  box-shadow:  1px 1px 2px 0 var(--shadowGreyActive);
-}
-
-.tempoSlider {
-  width: 70%;
-  -webkit-appearance: none;
-  height: 8px;
-  border-radius: 5px;  
-  background: var(--lightGrey);
-  outline: none;
-  opacity: 0.7;
-  background-image: var(--noise);
-  box-shadow:  0px 0 2px 0px #000;
-  margin: 0 10px;
-}
-
-.tempoSlider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 24px;
-  height: 20px;
-  border-radius: 40%;
-  background: var(--mainBlue);
-  cursor: pointer;
-  border: 0;
-  box-shadow:  4px 3px 8px 0px var(--shadowGrey);
-}
-
-.tempoSlider::-moz-range-thumb {
-  width: 24px;
-  height: 20px;
-  border-radius: 40%;
-  background: var(--mainBlue);
-  cursor: pointer;
-  border: 0;
-  box-shadow:  4px 3px 8px 0px var(--shadowGrey);
-}
-
-.tempoDisplayWrapper {
-  position: absolute;
-  width: 130px;
-  top: 10px;
-  left: 0px;
-}
-
-.tempoDisplay {
-  text-align: center;
-  font-size: 1.5em;
-  color: var(--lightGrey);
-}
-
-.ticksContainer {
-  width: 70%;
-  list-style: none;
-  display: flex;
-  margin: 0 auto;
-  justify-content: space-between;
-  position: relative;
-  top: -20px;
-}
-
-.ticks {
-  width: 30px;
-  text-align: center;
-  transform: rotate(90deg);
-  font-size: .65em;
-  color: var(--grey);
-}
-
+/* Play Button */
 .buttonContainer {
   width: 80px;
   height: 80px;
   border: 2px solid var(--darkGrey);
   margin: 0 auto;
-  position: relative;
+  position: absolute;
   top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: var(--lightGrey);
+  background-image: var(--noise); 
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   z-index: 10;
-  background-image: var(--noise); 
 }
 
 .playButton {
@@ -342,53 +366,3 @@
   left: 12px;
   right: 12px;
 }
-
-
-/*  Pendulum  */
-
-
-
-
-.dashBoard {
-  width: 350px;
-  border: 4px solid var(--darkGrey);
-  height: 154px;
-  margin: 0 auto;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  position: relative;
-  background-image: var(--noise);
-  background-color: var(--darkGrey);
-  box-shadow: inset 0px 0px 12px 2px var(--shadowGrey);
-}
-
-
-
-
-
-
-
-.accentCheckContainer {
-  position: absolute;
-  display: flex;
-  top: 5px;
-  right: 10px;
-}
-
-.accentCheckText {
-  text-align: center;
-  font-size: 1.1em;
-  color: var(--lightGrey);
-  margin-right: 12px;
-}
-
-.accentCheck {
-  height: 20px;
-  width: 20px;
-  margin-top: 4px;
-  background-color: var(--mainBlue);
-}
-
-
-
-
