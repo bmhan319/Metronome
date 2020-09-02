@@ -51,6 +51,7 @@ const convert = (bpm) => {
 //Reset Function
 const reset = () => {
   clearInterval(changeSettings)
+
   document.getElementById("playButton").innerHTML = "Play"
   document.getElementById("beatNum").innerHTML = 0
   document.getElementById("pendulum").classList.remove("swing")
@@ -128,7 +129,7 @@ const timeSigChange = (num) => {
   createBalls(timeSig)
 
   //iterates through all balls and removes 'active' classname
-  for (let i = 0; i < 11; i++) {
+  for (let i = 0; i < beatsWrapper.children.length; i++) {
     beatsWrapper.children[i].classList.remove("beatPerMeasure-active")
   }
 

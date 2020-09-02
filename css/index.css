@@ -63,7 +63,6 @@
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  
 }
 
 .ball {
@@ -268,7 +267,7 @@
   transform: rotate(90deg);
   font-size: .85em;
   color: var(--lightGrey);
-  margin-top: 2px;
+  margin-top: 0px;
   text-shadow: 1px 1px 5px var(--shadowGrey);
 }
 
@@ -280,13 +279,12 @@
 
 .beatsWrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .beatPerMeasure {
-  border-radius: 50%;
-  margin-right: 4px;
-  width: 24px;
+  border-radius: 10%;
+  width: 34px;
   height: 24px;
   display: flex;
   align-items: center;
