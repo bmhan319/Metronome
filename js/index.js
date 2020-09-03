@@ -13,9 +13,9 @@ let tempo = 80            //default tempo speed
 let timeSig = 4           //default time signature
 
 //On Load, create the default number of balls to match default time signature
-window.addEventListener('load', createBalls(4));
+window.addEventListener('load', createBalls(timeSig));
 //On unLoad, reset slider position back to default of '80'
-window.addEventListener('unload', resetSlider(80))
+window.addEventListener('unload', resetSlider(80, 1))
 
 
 //Master metronome function
@@ -192,7 +192,7 @@ const pendulum = (milliseconds) => {
 //Reset Slider
 //In order to reset slider, must delete old 'input' tag and add create a new one
 //NOTE: using clone() will create new slider but will not reset thumb slider position on reload
-function resetSlider(num) {
+function resetSlider(bpm, increment) {
   const slider = document.getElementById("myRange")
   const wrapper = document.getElementById("tempoWrapper")
   const clone = document.createElement("input")
@@ -202,8 +202,8 @@ function resetSlider(num) {
     type: "range",
     min: "25",
     max: "225",
-    step: "5",
-    value: num,
+    step: increment,
+    value: bpm,
     onmouseup: "updateInputText(this.value)",
     id: "myRange"
   }
