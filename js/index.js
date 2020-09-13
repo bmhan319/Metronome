@@ -143,10 +143,9 @@ const timeSigChange = (num) => {
 
 
 //Update Slider Text Box
-function updateInputText(val) {
-  tempo = parseInt(val)
-  document.getElementById("tempoDisplay").innerHTML = `${tempo} BPM`
-  
+function updateInputText() {
+  tempo = parseInt(myRange.value)  
+  document.getElementById("tempoDisplay").innerHTML = tempo + " BPM"
   //this is set to prevent metronome from starting automatically when user adjusts tempo prior to hitting 'play'
   if (play === true) {
     reset()
@@ -159,7 +158,7 @@ function updateInputText(val) {
 //Tempo change using fine tune buttons next to slider
 function tempoChange(val) {
   tempo = tempo + val
-  resetSlider(tempo)
+  resetSlider(tempo, 1)
 
   //to prevent user from selecting a number below 25
   if (tempo < 25) {
@@ -204,7 +203,6 @@ function resetSlider(bpm, increment) {
     max: "225",
     step: increment,
     value: bpm,
-    onmouseup: "updateInputText(this.value)",
     id: "myRange"
   }
 

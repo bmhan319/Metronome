@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="metronome.png" type="image/png" sizes="16x16"> 
+  <link rel="icon" href="icon.png" type="image/png" sizes="16x16"> 
   <link rel="stylesheet" href="css/index.css">
   <title>Metronome</title>
 </head>
@@ -49,11 +49,13 @@
           </div>
         </div>
 
+        <form id="slideForm" oninput="updateInputText()">
         <div id="tempoWrapper" class="tempoWrapper">
           <div id="minus" class="minus" onclick="tempoChange(-1)">-</div>
-          <input type="range" min="25" max="225" step="1" value="80" onmouseup="updateInputText(this.value)" class="tempoSlider" id="myRange">
+            <input type="range" min="25" max="225" step="1" class="tempoSlider" id="myRange">
           <div id="plus" class="plus" onclick="tempoChange(1)">+</div>
         </div>
+        </form>
 
         <ul id="ticksContainer" class="ticksContainer">
           <li class="ticks" value="25">25</li>
