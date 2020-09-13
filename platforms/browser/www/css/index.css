@@ -1,0 +1,448 @@
+:root {
+  --mainBlue: rgb(43, 160, 255);
+  --darkBlue: rgb(32, 106, 167);
+
+  --lightGrey: #bbb;
+  --grey: rgb(126, 126, 126);
+  --darkGrey: rgb(110, 110, 110);
+  
+  --shadowGrey: #444;
+  --shadowGreyActive: #666;
+  
+  --noise: url(data:image/png;base64,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);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+}
+
+.pendulumContainer {
+  border: 2px solid #000;
+  width: 360px;
+  height: 100vh;
+  margin:0 auto;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Main Window */
+.mainWindow {
+  margin: 0 auto; /*25px*/
+  width: 94.444%; /*340px*/
+  border: 4px solid var(--grey);
+  height: 70%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: relative;
+  border-bottom: 0;
+  background-image: url("../img/BlackWoodBg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #000;
+}
+
+.beats {
+  margin: 0 auto;
+  padding: 2.667% 0; /*12px*/
+}
+
+.beatNum {
+  text-align: center;
+  margin-bottom: 4px;
+  color: var(--mainBlue);
+  font-size: 2em;
+  text-shadow:  3px 0 8px #000;
+}
+
+.beatBallsWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ball {
+  background-color: var(--lightGrey);
+  background-image: var(--noise);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.ball:nth-last-child(1) {
+  margin-right: 0px;
+}
+
+.active-ball {
+  background-color: var(--mainBlue);
+  background-image: var(--noise);
+}
+
+.pendulum {
+  display: block;
+  width: 10px;
+  height: 82.222%; /*370px*/
+  background-color: var(--mainBlue);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: box-shadow 1s ease-in;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  box-shadow:  3px 0 8px 2px #000;
+}
+
+.pendulum2 {
+  width: 3px;
+  background-color: rgb(128, 0, 128);
+  height: 95%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.swing {
+  height: 82.222%; /*370px*/
+  box-shadow: 0 0 40px 3px var(--mainBlue);
+  transition: box-shadow .5s ease-in;
+  transform-origin: bottom;
+  animation: swinging ease-in-out forwards infinite; 
+  animation-duration: 1500ms; 
+  /*  double the milliseconds to sync up to the ticking */
+  /* 1000ms is equal to 120bpm (500ms * 2) */
+}
+
+@keyframes swinging{
+    0%{transform: translateX(-50%) rotate(22deg);}
+    50%{transform: translateX(-50%) rotate(-22deg)}
+    100%{transform: translateX(-50%) rotate(22deg);}
+}
+
+/* DashBoard */
+.dashBoard {
+  width: 94.444%; /*340px*/
+  border: 4px solid var(--grey);
+  height: 25%;
+  margin: 0 auto;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position: relative;
+  background-image: var(--noise);
+  background-color: var(--grey);
+  box-shadow: inset 0px 0px 12px 2px var(--shadowGrey);
+}
+
+.tempoSelectorWrapper {
+  width: 100%;
+}
+
+.tempoAccentDisplayWrapper {
+  margin-top: 8px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Tempo Display */
+.tempoDisplayWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.tempoDisplay {
+  font-size: 1.5em;
+  color: var(--lightGrey);
+  text-shadow: 1px 1px 2px var(--shadowGrey);
+}
+
+/* Accent CheckBox */
+.accentCheckContainer {
+  display: flex;
+  position: relative;
+  padding-right: 16px;
+}
+
+.accentCheckText {
+  text-align: center;
+  font-size: 1em;
+  color: var(--lightGrey);
+  margin-right: 12px;
+  text-shadow: 1px 1px 2px var(--shadowGrey);
+}
+
+.accentCheckWrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Hide default checkbox */
+.accentCheck {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
+  margin-top: 4px;
+  z-index: 10;
+}
+
+/* Custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  margin-top: 4px;
+  border-radius: 2px;
+  background-color: var(--lightGrey);
+  border: 2px solid var(--darkGrey);
+}
+
+/* When the checkbox is checked, add blue bg */
+.accentCheck:checked ~ .checkmark {
+  background-color: var(--mainBlue);
+  background-image: var(--noise);
+}
+
+/* Checkmark (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.accentCheck:checked:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark */
+.checkmark:after {
+  left: 4px;
+  top: -1px;
+  width: 3px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Tempo Selector */
+.tempoWrapper {
+  width: 100%;
+  text-align: center;
+  padding: 0 16px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.minus,
+.plus {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--lightGrey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  border: 2px solid var(--darkGrey);
+  background-image: var(--noise);
+  color: var(--grey);
+  box-shadow:  2px 2px 2px 0px var(--shadowGrey);
+  cursor: pointer;
+}
+
+.minus:active,
+.plus:active {
+  box-shadow:  1px 1px 2px 0 var(--shadowGreyActive);
+}
+
+.tempoSlider {
+  width: 77%;
+  -webkit-appearance: none;
+  height: 8px;
+  border-radius: 5px;  
+  background: var(--lightGrey);
+  outline: none;
+  opacity: 0.7;
+  background-image: var(--noise);
+  box-shadow:  0px 0 2px 0px #000;
+  margin: 0 10px;
+}
+
+.tempoSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px;
+  height: 24px;
+  border-radius: 40%;
+  background: var(--mainBlue);
+  cursor: pointer;
+  border: 1px solid var(--darkGrey);
+  box-shadow:  4px 3px 8px 0px var(--shadowGrey);
+  box-shadow: 3px 3px 6px 0px var(--darkBlue) inset;
+}
+
+.tempoSlider::-moz-range-thumb {
+  width: 24px;
+  height: 20px;
+  border-radius: 40%;
+  background: var(--mainBlue);
+  cursor: pointer;
+  border: 1px solid var(--darkGrey);
+  box-shadow:  4px 3px 8px 0px var(--shadowGrey);
+  box-shadow: 3px 3px 6px 0px var(--darkBlue) inset;
+}
+
+.ticksContainer {
+  width: 71%;
+  list-style: none;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  position: relative;
+  top: -20px;
+}
+
+.ticks {
+  width: 30px;
+  text-align: center;
+  transform: rotate(90deg);
+  font-size: .85em;
+  color: var(--lightGrey);
+  margin-top: 0px;
+  text-shadow: 1px 1px 5px var(--shadowGrey);
+}
+
+/* Time Signature Selector */
+.beatsPerMeasureSelectorWrapper {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.beatsWrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.beatPerMeasure {
+  border-radius: 10%;
+  width: 34px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--lightGrey);
+  border: 2px solid var(--darkGrey);
+  color: var(--darkGrey);
+  font-size: .75em;
+  background-image: var(--noise);
+  box-shadow:  2px 2px 2px 0px var(--shadowGrey);
+  cursor: pointer;
+}
+
+.beatPerMeasure:active {
+  box-shadow:  1px 1px 2px 0 var(--shadowGreyActive);
+}
+
+.beatPerMeasure-active {
+  background-color: var(--mainBlue);
+  color: #fff;
+}
+
+/* Play Button */
+.buttonContainer {
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--darkGrey);
+  margin: 0 auto;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--lightGrey);
+  background-image: var(--noise); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.playButton {
+  width: 60px;
+  height: 60px;
+  background-color: #000;
+  color: var(--mainBlue);
+  border-radius: 50%;
+  font-size: 1em;
+  outline: none;
+  cursor: pointer;
+  background-image: linear-gradient( /* chrome */
+    hsla(0, 0%, 100%, 0.5), hsla(0, 0%, 100%, 0) 50%,
+    hsla(0, 0%, 0%, 0.3) 50%, hsla(0, 0%, 100%, 0.4)
+  );
+  position: relative;
+  border: 0;
+}
+
+.playButton:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 5px;
+  height: 30px;
+  border-radius: 50px;
+  background: linear-gradient(
+    hsla(0, 0%, 100%, 0.7), hsla(0, 0%, 100%, 0) );
+}
+
+.playButton:active {
+  font-size: .9em;
+}
+
+.playButton:active:before {
+  top: 6px;
+  left: 12px;
+  right: 12px;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 400px) {
+  .pendulumContainer {
+    height: 740px;
+    border-radius: 25px;
+    display: block;
+    margin-top: 12px;
+    box-shadow: 8px 10px 8px 0px #888;
+  }
+
+
+  /* Main Window */
+  .mainWindow {
+    margin: 18% auto 0; /*25px*/
+    height: 60.81%;
+  }
+
+  .dashBoard {
+    height: 20.81%; /*154px*/
+  }
+}
